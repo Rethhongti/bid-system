@@ -1,0 +1,211 @@
+{
+	"info": {
+		"_postman_id": "a42e90a3-50e8-4823-9635-45b31f3d91fe",
+		"name": "Bid System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Sign in",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "hongti",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"hongti\",\n    \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/sign-in",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sign-in"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "back office",
+			"item": [
+				{
+					"name": "create bid item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJkZ2MtQ2FtYm9kaWEiLCJzdWIiOiJob25ndGkiLCJleHAiOjE3MjI1OTQ5MjQsImlhdCI6MTcyMjU5NDAyNCwic2NvcGUiOiJSRUFEIERFTEVURSBDUkVBVEVfQklEIFdSSVRFIn0.TdhbPzHJdFB9Z7MtGPp2xjInPyisaAMQ-ssBRgKsqvKwunJa5OLoH8rFmgahYDGsWilDD46OoCrM27mUR4hT1mf4ddyrq9KcAQMbGdPq1nJ9L5aoH08rkB6YbrtiQegPxO5Itv3c-FDAvn64fX45ym9ubHgLn1DHSGeVNKkKhySS_oVW-AeO8Ubone8OENlrVOPTPn3poJ88sKbMCrBVrkCNKDjhgXzinPbfKxQhk9pyumWprCdi2Sf8foj0eSHiibROChVMGrQVb5KXIwN3acAhk9h8vFf9xKI_lUrEwTdysONqDJ2MWB6URgFkKLYeQg18TQa9Aqoe0n2aVP1HqQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Car bidding\",\n    \"start_price\": 1000,\n    \"close_date\": \"2024-08-10T15:30:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/create-bid-item",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"create-bid-item"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "bidder",
+			"item": [
+				{
+					"name": "bid item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJkZ2MtQ2FtYm9kaWEiLCJzdWIiOiJob25ndGkiLCJleHAiOjE3MjI2MTM0NjEsImlhdCI6MTcyMjYxMjU2MSwic2NvcGUiOiJSRUFEIERFTEVURSBDUkVBVEVfQklEIFdSSVRFIn0.TRWJt_IRY8agQXVlBK9BByy-_YyHHlCBu4VH9k-s6pL4lu9RltYbO2C7rWzIolBaylzH3KjvyhxoqcY2AEgWDTFrliH3c_KF1Q6NOgYp6koCfodzNKr9kT0oA6ED4TGaQRgeyx6UZ4y7xn96WA461NRBrZEAPe6rf4R0HbqY69i4cec7RunQz4YWsZiuIb-hYIQkuoo9ElnnAS8ZQ4Z7ymcESI3U7SO95Ym-k0e-fD0HTBvgB7JYxn0Gc-3xejvEuFrL0WXblNxygSVQhsD3xOdrxt5uTCBvPdVoGi45VNgk_Dg7p5rXgKZ34nhWF39N1J22OwKNse0FG7aQfHO_hg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"bid_id\": 1,\n    \"amount\": 1001\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/bid-item",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"bid-item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get bidded largest amount",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJkZ2MtQ2FtYm9kaWEiLCJzdWIiOiJob25ndGkiLCJleHAiOjE3MjI2MTQyNDYsImlhdCI6MTcyMjYxMzM0Niwic2NvcGUiOiJSRUFEIERFTEVURSBDUkVBVEVfQklEIFdSSVRFIn0.CW7_LtUdD7LCVFmDMiE0W13ii5Ayh4yPVUuXOQhovk53WVcju6MrKa3wU__iFBfpFXCmgvGDNlZF4tEeaBu2JDsbY5uAhYIhGFo2wPYqDYmnL1SGdeO8Kz25_nItpv7I65kTJi-R9ESMgst-1MrbX8LrHIA7NWh5U7LDOiRmKJVuhbB3O-yzL7Gla77rwyIhKL86wRZcAr3PqagQVAy7H-wi425ODuHBrziUuUwnkJge_AOK8RDACgRnVbbriiUVO3edLz_vEw30Zp2TeEpVwQRUi-KHTMlNX2ykPHSHRQjml9QjsUk9u5zpjqH9kIV9eUp8Go3gE184d3yYmYuqsw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/largest-bid-amount?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"largest-bid-amount"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user histories",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJkZ2MtQ2FtYm9kaWEiLCJzdWIiOiJob25ndGkiLCJleHAiOjE3MjI2MTU3NjUsImlhdCI6MTcyMjYxNDg2NSwic2NvcGUiOiJSRUFEIERFTEVURSBDUkVBVEVfQklEIFdSSVRFIn0.fC0GkzQgAjtICmjTfoOrLNObpxu1_f4fdX8ncUyzgrSxySx_ky2Y7vzqABOfABzqind-LenhDLGtT1uR4p9fK8084vx3NIUQayXqHoQyDmajM70TEl3LxNHrpFT7BCjJWdXBBW7N5xCBilQdkwr06aCh6-f_pSpdDHTmvuNmIYqopNAfMUq43COAlTciGEhIZe3BRzvkLldrmVkHwxMsj5iVIFHIDy8x53pxRR8u-54UP1AgFmFN43OqHKONuB2D5UjXoqJQ-Dma6dCQeyB4sxVUQBn8hn7PPUddupnXL2uuys8I-o1n-k3hF2UG8fPFWUcjHHciRixFTyEW5FOdmg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/user-histories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user-histories"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

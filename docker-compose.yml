@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  db:
+    container_name: bid-system-db
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/data/mysql
+    networks:
+      - bid-network
+    environment:
+      - MYSQL_USER=hongti
+      - MYSQL_DATABASE=bid-system
+      - MYSQL_PASSWORD=bid@123456
+      - MYSQL_ROOT_PASSWORD=root@123456
+
+networks:
+  bid-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
